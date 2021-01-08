@@ -17,7 +17,7 @@
 module "vpc" {
   source                  = "terraform-google-modules/network/google//modules/vpc"
   version                 = "~> 3.0.0"
-  project_id              = module.project.project_id
+  project_id              = var.project_id
   network_name            = local.network_name
   auto_create_subnetworks = false
 }
@@ -25,7 +25,7 @@ module "vpc" {
 module "subnets" {
   source       = "terraform-google-modules/network/google//modules/subnets"
   version      = "~> 3.0.0"
-  project_id   = module.project.project_id
+  project_id   = var.project_id
   network_name = module.vpc.network_name
 
   subnets = [
@@ -43,7 +43,7 @@ module "cloud_router" {
   version = "~> 0.4"
 
   name    = local.router_name
-  project = module.project.project_id
+  project = var.project_id
   region  = var.region
   network = module.vpc.network_self_link
 }
@@ -52,7 +52,7 @@ module "cloud-nat" {
   source  = "terraform-google-modules/cloud-nat/google"
   version = "~> 1.2"
 
-  project_id = module.project.project_id
+  project_id = var.project_id
   region     = var.region
   router     = local.router_name
 }

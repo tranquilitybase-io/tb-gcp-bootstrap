@@ -11,6 +11,12 @@ variable "region" {
   default = "eu-west1"
 }
 
+variable "project_id" {
+}
+
+variable "folder_name" {
+}
+
 variable "project_roles" {
   type    = list(string)
   default = [
