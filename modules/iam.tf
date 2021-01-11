@@ -1,4 +1,3 @@
-
 module "service-accounts" {
   source  = "terraform-google-modules/service-accounts/google"
   version = "3.0.1"
@@ -21,7 +20,7 @@ module "folder-iam" {
     ]
   }
 }
-
+/*
 module "billing-account-iam" {
   source = "terraform-google-modules/iam/google//modules/billing_accounts_iam"
 
@@ -34,7 +33,7 @@ module "billing-account-iam" {
     ]
   }
 }
-
+*/
 module "project-services" {
   source  = "terraform-google-modules/project-factory/google//modules/project_services"
   version = "4.0.0"

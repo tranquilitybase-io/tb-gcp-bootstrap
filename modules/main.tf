@@ -10,5 +10,5 @@ locals {
   subnet_name             = format("%s-%s", "subnet", local.prefix)
   router_name             = format("%s-%s", "router", local.prefix)
   sa_name                 = format("%s-%s", "sa", local.prefix)
-  project_roles           = [for role in var.project_roles : format("%s=>%s", module.project.project_id, role)]
+  project_roles           = [for role in var.project_roles : format("%s=>%s", var.project_id, role)]
 }
