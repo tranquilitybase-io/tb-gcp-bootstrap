@@ -1,14 +1,8 @@
-variable "parent_id" {
-}
-
 variable "billing_id" {
 }
 
-variable "org_id" {
-}
-
 variable "region" {
-  default = "eu-west1"
+  default = "europe-west1"
 }
 
 variable "project_id" {
