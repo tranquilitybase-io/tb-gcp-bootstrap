@@ -1,19 +1,3 @@
-/*module "vpc" {
-  source  = "terraform-google-modules/network/google"
-  version = "~> 3.0"
-
-  network_name = local.network_name
-  project_id   = module.project.project_id
-
-  subnets = [
-    {
-      subnet_name = local.subnet_name
-      subnet_ip   = "192.168.0.0/28"
-      region      = var.region
-    }
-  ]
-}*/
-
 module "vpc" {
   source                  = "terraform-google-modules/network/google//modules/vpc"
   version                 = "~> 3.0.0"

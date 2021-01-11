@@ -18,7 +18,7 @@ variable "folder_name" {
 }
 
 variable "project_roles" {
-  type    = list(string)
+  type = list(string)
   default = [
     "roles/compute.instanceAdmin.v1",
     "roles/storage.admin",

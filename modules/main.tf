@@ -12,6 +12,3 @@ locals {
   sa_name                 = format("%s-%s", "sa", local.prefix)
   project_roles           = [for role in var.project_roles : format("%s=>%s", module.project.project_id, role)]
 }
-
-
-
