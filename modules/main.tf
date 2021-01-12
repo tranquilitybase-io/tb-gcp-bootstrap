@@ -11,7 +11,4 @@ locals {
   project_roles           = [for role in var.project_roles : format("%s=>%s", var.project_id, role)]
   subnet_name             = "bootstrapsubnet"
   sa_name                 = "bootstrapsa"
-
-  folder_roles = [for role in var.folder_roles : format("%s=>%s", var.project_id, role)]
-
 }
