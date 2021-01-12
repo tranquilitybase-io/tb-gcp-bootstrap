@@ -9,6 +9,6 @@ locals {
   network_name            = format("%s-%s", "vpc", local.prefix)
   router_name             = format("%s-%s", "router", local.prefix)
   project_roles           = [for role in var.project_roles : format("%s=>%s", var.project_id, role)]
-  subnet_name             = "bootstrap_subnet"
-  sa_name                 = "bootstrap-sa"
+  subnet_name             = "bootstrapsubnet"
+  sa_name                 = "bootstrapsa"
 }
