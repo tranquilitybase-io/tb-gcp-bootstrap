@@ -13,6 +13,20 @@ module "folder-iam" {
 
   mode = "additive"
 
+  bindings = {
+    "roles/${local.folder_roles}" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+  }
+}
+
+/*
+module "folder-iam" {
+  source  = "terraform-google-modules/iam/google//modules/folders_iam"
+  folders = [var.folder_name]
+
+  mode = "additive"
+
   for_each = toset(var.folder_roles)
   bindings = {
     "roles/${each.value}" = [
