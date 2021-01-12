@@ -7,6 +7,15 @@ module "service-accounts" {
   project_roles = local.project_roles
 }
 
+resource "google_folder_iam_member" "folder-iam" {
+  folder  = var.folder_name
+
+  for_each = toset(var.folder_roles)
+  role    = "roles/${each.value}"
+  member  = "serviceAccount:${module.service-accounts.email}"
+}
+
+/* needs to replace the above once issues for_each issues resolved
 module "folder-iam" {
   source  = "terraform-google-modules/iam/google//modules/folders_iam"
   folders = [var.folder_name]
@@ -20,7 +29,7 @@ module "folder-iam" {
     ]
   }
 }
-
+*/
 module "billing-account-iam" {
   source = "terraform-google-modules/iam/google//modules/billing_accounts_iam"
 
