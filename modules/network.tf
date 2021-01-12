@@ -14,7 +14,7 @@ module "subnets" {
 
   subnets = [
     {
-      subnet_name           = "bootstrap_subnet"
+      subnet_name           = local.subnet_name
       subnet_ip             = "192.168.0.0/28"
       subnet_region         = var.region
       subnet_private_access = true
