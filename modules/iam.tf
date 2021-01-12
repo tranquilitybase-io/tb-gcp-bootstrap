@@ -3,7 +3,7 @@ module "service-accounts" {
   version = "3.0.1"
 
   project_id    = var.project_id
-  names         = ["bootstrap-sa"]
+  names         = [local.sa_name]
   project_roles = local.project_roles
 }
 
