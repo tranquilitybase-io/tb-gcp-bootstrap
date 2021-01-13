@@ -22,21 +22,6 @@ variable "project_roles" {
   ]
 }
 
-variable "folder_roles" {
-  default = [
-    "resourcemanager.folderAdmin",
-    "resourcemanager.projectCreator",
-    "resourcemanager.projectDeleter",
-    "billing.projectManager",
-    "compute.networkAdmin",
-    "compute.xpnAdmin",
-    "compute.networkUser",
-    "cloudkms.admin",
-    "logging.logWriter",
-    "logging.configWriter"
-  ]
-}
-
 variable "project_apis" {
   default = [
     "cloudbilling.googleapis.com",

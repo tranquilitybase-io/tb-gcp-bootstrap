@@ -17,20 +17,47 @@ resource "google_folder_iam_member" "folder-iam" {
 }
 
 */
-# needs to replace the above once issues for_each issues resolved
+# due to the modules restrictions a for_each can't be used here
 module "folder-iam" {
   source  = "terraform-google-modules/iam/google//modules/folders_iam"
   folders = [var.folder_name]
 
   mode = "additive"
 
-  for_each = toset(var.folder_roles)
   bindings = {
-    "roles/${each.value}" = [
+    "roles/resourcemanager.folderAdmin" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/resourcemanager.projectCreator" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/resourcemanager.projectDeleter" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/billing.projectManager" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/compute.networkAdmin" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/compute.xpnAdmin" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/compute.networkUser" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/cloudkms.admin" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/logging.logWriter" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/logging.configWriter" = [
       "serviceAccount:${module.service-accounts.email}"
     ]
   }
 }
+
 /*
 
 ###
