@@ -27,7 +27,7 @@ resource "google_folder_iam_member" "folder-iam" {
 
   for_each = toset(var.folder_roles)
   role    = "roles/${each.value}"
-  member  = "serviceAccount:${module.service-accounts.email}"
+  member  = "serviceAccount:${google_service_account.sa.email}"
 }
 
 /* needs to replace the above once issues for_each issues resolved
@@ -54,7 +54,7 @@ module "billing-account-iam" {
   billing_account_ids = [var.billing_id]
   bindings = {
     "roles/billing.admin" = [
-      "serviceAccount:${module.service-accounts.email}"
+      "serviceAccount:${google_service_account.sa.email}"
     ]
   }
 }
