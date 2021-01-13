@@ -8,7 +8,7 @@ variable "region" {
 variable "project_id" {
 }
 
-variable "folder_name" {
+variable "folder_id" {
 }
 
 variable "project_roles" {

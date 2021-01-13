@@ -25,7 +25,7 @@ resource "google_folder_iam_member" "folder-iam" {
 # due to the modules restrictions a for_each can't be used here
 module "folder-iam" {
   source  = "terraform-google-modules/iam/google//modules/folders_iam"
-  folders = ["894711340662"]
+  folders = [var.folder_id]
 
   mode = "additive"
 
@@ -100,7 +100,7 @@ module "project-services" {
 ### need to fork and update to include audit on folder
 ### https://github.com/terraform-google-modules/terraform-google-iam/tree/1df0f6a6a385ba92e831937ee9772a2c5508e302/modules/audit_config
 resource "google_folder_iam_audit_config" "audit_logging" {
-  folder  = var.folder_name
+  folder  = var.folder_id
   service = "allServices"
   audit_log_config {
     log_type = "ADMIN_READ"
