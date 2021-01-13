@@ -22,8 +22,6 @@ module "folder-iam" {
   source  = "terraform-google-modules/iam/google//modules/folders_iam"
   folders = [var.folder_name]
 
-  mode = "additive"
-
   bindings = {
     "roles/resourcemanager.folderAdmin" = [
       "serviceAccount:${module.service-accounts.email}",
