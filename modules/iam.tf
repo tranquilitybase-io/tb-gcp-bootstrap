@@ -1,13 +1,15 @@
 resource "google_service_account" "sa" {
+
   account_id   = local.sa_name
   display_name = local.sa_name
   project      = var.project_id
-
 }
 
-resource "google_service_account_iam_member" "admin-account-iam" {
+resource "google_service_account_iam_member" "sa-iam" {
+
+  for_each           = toset(var.project_roles)
   service_account_id = google_service_account.sa.name
-  role               = var.project_roles
+  role               = "${each.value}"
   member             = google_service_account.sa.email
 }
 
