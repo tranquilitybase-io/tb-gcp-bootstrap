@@ -28,9 +28,9 @@ module "folder-iam" {
     "roles/resourcemanager.folderAdmin" = [
       "serviceAccount:${module.service-accounts.email}",
     ]
-   "roles/resourcemanager.projectCreator" = [
-      "serviceAccount:${module.service-accounts.email}",
-    ]
+#   "roles/resourcemanager.projectCreator" = [
+#      "serviceAccount:${module.service-accounts.email}",
+#    ]
 #    "roles/resourcemanager.projectDeleter" = [
 #      "serviceAccount:${module.service-accounts.email}"
 #    ]
