@@ -17,6 +17,7 @@ resource "google_service_account_iam_member" "sa-iam" {
 }
 
 #######needs to replace the above once issues for_each issues resolved
+*/
 module "service-accounts" {
   source  = "terraform-google-modules/service-accounts/google"
   version = "3.0.1"
@@ -25,7 +26,7 @@ module "service-accounts" {
   names         = [local.sa_name]
   project_roles = local.project_roles
 }
-
+/*
 ####delete
 resource "google_folder_iam_member" "folder-iam" {
   folder  = var.folder_name
@@ -59,6 +60,7 @@ resource "google_billing_account_iam_member" "billing-account-iam" {
   member             = "serviceAccount:${google_service_account.sa.email}"
 }
 
+
  #needs to replace the above once issues for_each issues resolved
 module "billing-account-iam" {
   source = "terraform-google-modules/iam/google//modules/billing_accounts_iam"
@@ -72,6 +74,7 @@ module "billing-account-iam" {
     ]
   }
 }
+
 
 
 module "project-services" {
