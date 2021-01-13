@@ -10,6 +10,11 @@ module "service-accounts" {
 output "saemail" {
   value = module.service-accounts.email
 }
+
+output "folder_name" {
+  value = var.folder_name
+}
+
 /*
 ####delete
 resource "google_folder_iam_member" "folder-iam" {
@@ -20,7 +25,7 @@ resource "google_folder_iam_member" "folder-iam" {
   member  = "serviceAccount:${google_service_account.sa.email}"
 }
 
-*/
+
 # due to the modules restrictions a for_each can't be used here
 module "folder-iam" {
   source  = "terraform-google-modules/iam/google//modules/folders_iam"
@@ -61,7 +66,7 @@ module "folder-iam" {
 #    ]
   }
 }
-
+*/
 /*
 
 ###
