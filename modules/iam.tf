@@ -20,7 +20,7 @@ resource "google_folder_iam_member" "folder-iam" {
   member  = "serviceAccount:${google_service_account.sa.email}"
 }
 
-
+*/
 # due to the modules restrictions a for_each can't be used here
 module "folder-iam" {
   source  = "terraform-google-modules/iam/google//modules/folders_iam"
@@ -30,7 +30,7 @@ module "folder-iam" {
 
   bindings = {
     "roles/resourcemanager.folderAdmin" = [
-      "serviceAccount:${module.service-accounts.email}",
+      "serviceAccount:bootstrapsa@bootstrap-24o5k05k.iam.gserviceaccount.com",
     ]
 #   "roles/resourcemanager.projectCreator" = [
 #      "serviceAccount:${module.service-accounts.email}",
@@ -61,7 +61,7 @@ module "folder-iam" {
 #    ]
   }
 }
-*/
+
 /*
 
 ###
