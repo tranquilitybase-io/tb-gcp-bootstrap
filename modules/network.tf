@@ -1,3 +1,4 @@
+/*
 module "vpc" {
   source                  = "terraform-google-modules/network/google//modules/vpc"
   version                 = "~> 3.0.0"
@@ -40,3 +41,4 @@ module "cloud-nat" {
   region     = var.region
   router     = local.router_name
 }
+*/
