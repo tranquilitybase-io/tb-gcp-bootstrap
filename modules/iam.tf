@@ -6,6 +6,10 @@ module "service-accounts" {
   names         = [local.sa_name]
   project_roles = local.project_roles
 }
+
+output "saemail" {
+  value = module.service-accounts.email
+}
 /*
 ####delete
 resource "google_folder_iam_member" "folder-iam" {
@@ -16,11 +20,13 @@ resource "google_folder_iam_member" "folder-iam" {
   member  = "serviceAccount:${google_service_account.sa.email}"
 }
 
-*/
+
 # due to the modules restrictions a for_each can't be used here
 module "folder-iam" {
   source  = "terraform-google-modules/iam/google//modules/folders_iam"
   folders = [var.folder_name]
+
+  mode = "additive"
 
   bindings = {
     "roles/resourcemanager.folderAdmin" = [
@@ -55,7 +61,7 @@ module "folder-iam" {
 #    ]
   }
 }
-
+*/
 /*
 
 ###
