@@ -32,7 +32,7 @@ module "cloud_router" {
   region  = var.region
   network = module.vpc.network_self_link
 }
-/*
+
 module "cloud-nat" {
   source  = "terraform-google-modules/cloud-nat/google"
   version = "~> 1.2"
@@ -41,4 +41,3 @@ module "cloud-nat" {
   region     = var.region
   router     = local.router_name
 }
-*/
