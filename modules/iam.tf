@@ -7,10 +7,6 @@ module "service-accounts" {
   project_roles = local.project_roles
 }
 
-output "saemail" {
-  value = module.service-accounts.email
-}
-
 /*
 ####delete
 resource "google_folder_iam_member" "folder-iam" {
@@ -33,9 +29,9 @@ module "folder-iam" {
     "roles/resourcemanager.folderAdmin" = [
       "serviceAccount:bootstrapsa@bootstrap-24o5k05k.iam.gserviceaccount.com",
     ]
-#   "roles/resourcemanager.projectCreator" = [
-#      "serviceAccount:${module.service-accounts.email}",
-#    ]
+   "roles/resourcemanager.projectCreator" = [
+      "serviceAccount:${module.service-accounts.email}",
+    ]
 #    "roles/resourcemanager.projectDeleter" = [
 #      "serviceAccount:${module.service-accounts.email}"
 #    ]
