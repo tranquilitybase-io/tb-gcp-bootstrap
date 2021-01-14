@@ -48,31 +48,18 @@ module "folder-iam" {
   }
 }
 
-/*
-
-###
-resource "google_billing_account_iam_member" "billing-account-iam" {
-  billing_account_id = var.billing_id
-  role               = "roles/billing.admin"
-  member             = "serviceAccount:${google_service_account.sa.email}"
-}
-
-
- #needs to replace the above once issues for_each issues resolved
-module "billing-account-iam" {
-  source = "terraform-google-modules/iam/google//modules/billing_accounts_iam"
-
-  mode = "additive"
-
-  billing_account_ids = [var.billing_id]
-  bindings = {
-    "roles/billing.admin" = [
-      "serviceAccount:${google_service_account.sa.email}"
-    ]
-  }
-}
-
-*/
+#module "billing-account-iam" {
+#  source = "terraform-google-modules/iam/google//modules/billing_accounts_iam"
+#
+#  mode = "additive"
+#
+#  billing_account_ids = [var.billing_id]
+#  bindings = {
+#    "roles/billing.admin" = [
+#      "serviceAccount:${google_service_account.sa.email}"
+#    ]
+#  }
+#}
 
 module "project-services" {
   source  = "terraform-google-modules/project-factory/google//modules/project_services"
