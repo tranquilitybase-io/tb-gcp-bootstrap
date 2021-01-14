@@ -32,30 +32,30 @@ module "folder-iam" {
    "roles/resourcemanager.projectCreator" = [
       "serviceAccount:${module.service-accounts.email}",
     ]
-#    "roles/resourcemanager.projectDeleter" = [
-#      "serviceAccount:${module.service-accounts.email}"
-#    ]
-#    "roles/billing.projectManager" = [
-#      "serviceAccount:${module.service-accounts.email}"
-#    ]
-#    "roles/compute.networkAdmin" = [
-#      "serviceAccount:${module.service-accounts.email}"
-#    ]
-#    "roles/compute.xpnAdmin" = [
-#      "serviceAccount:${module.service-accounts.email}"
-#    ]
-#    "roles/compute.networkUser" = [
-#      "serviceAccount:${module.service-accounts.email}"
-#    ]
-#    "roles/cloudkms.admin" = [
-#      "serviceAccount:${module.service-accounts.email}"
-#    ]
-#    "roles/logging.logWriter" = [
-#      "serviceAccount:${module.service-accounts.email}"
-#    ]
-#    "roles/logging.configWriter" = [
-#      "serviceAccount:${module.service-accounts.email}"
-#    ]
+    "roles/resourcemanager.projectDeleter" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/billing.projectManager" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/compute.networkAdmin" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/compute.xpnAdmin" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/compute.networkUser" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/cloudkms.admin" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/logging.logWriter" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
+    "roles/logging.configWriter" = [
+      "serviceAccount:${module.service-accounts.email}"
+    ]
   }
 }
 
