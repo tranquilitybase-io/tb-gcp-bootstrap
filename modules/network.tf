@@ -6,7 +6,7 @@ module "vpc" {
   network_name            = local.network_name
   auto_create_subnetworks = false
 }
-/*
+
 module "subnets" {
   source       = "terraform-google-modules/network/google//modules/subnets"
   version      = "~> 3.0.0"
@@ -22,7 +22,7 @@ module "subnets" {
     }
   ]
 }
-
+/*
 module "cloud_router" {
   source  = "terraform-google-modules/cloud-router/google"
   version = "~> 0.4"
