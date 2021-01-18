@@ -16,34 +16,34 @@ module "folder-iam" {
 
   bindings = {
     "roles/resourcemanager.folderAdmin" = [
-      "serviceAccount:${module.service-accounts.email}",
+      local.sa_email,
     ]
    "roles/resourcemanager.projectCreator" = [
-      "serviceAccount:${module.service-accounts.email}",
+      local.sa_email,
     ]
     "roles/resourcemanager.projectDeleter" = [
-      "serviceAccount:${module.service-accounts.email}",
+      local.sa_email,
     ]
     "roles/billing.projectManager" = [
-      "serviceAccount:${module.service-accounts.email}",
+      local.sa_email,
     ]
     "roles/compute.networkAdmin" = [
-      "serviceAccount:${module.service-accounts.email}",
+      local.sa_email,
     ]
     "roles/compute.xpnAdmin" = [
-      "serviceAccount:${module.service-accounts.email}",
+      local.sa_email,
     ]
     "roles/compute.networkUser" = [
-      "serviceAccount:${module.service-accounts.email}",
+      local.sa_email,
     ]
     "roles/cloudkms.admin" = [
-      "serviceAccount:${module.service-accounts.email}",
+      local.sa_email,
     ]
     "roles/logging.logWriter" = [
-      "serviceAccount:${module.service-accounts.email}",
+      local.sa_email,
     ]
     "roles/logging.configWriter" = [
-      "serviceAccount:${module.service-accounts.email}",
+      local.sa_email,
     ]
   }
 }
