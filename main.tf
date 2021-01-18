@@ -1,9 +1,5 @@
-resource "random_id" "prefix" {
-  byte_length = 8
-}
-
 locals {
-  prefix                  = random_id.prefix.dec
+  prefix                  = var.random_id
   root_folder_name        = format("%s-%s", "TranquilityBase", local.prefix)
   management_project_name = format("%s-%s", "management", local.prefix)
   network_name            = format("%s-%s", "vpc", local.prefix)

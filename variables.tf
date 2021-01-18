@@ -49,3 +49,6 @@ variable "project_apis" {
     "runtimeconfig.googleapis.com"
   ]
 }
+
+variable "random_id" {
+}
