@@ -5,6 +5,8 @@ module "service-accounts" {
   project_id    = var.project_id
   names         = [local.sa_name]
   project_roles = local.project_roles
+
+  depends_on = [module.project-services]
 }
 
 # due to the modules restrictions a for_each can't be used here
@@ -14,7 +16,7 @@ module "folder-iam" {
 
   mode = "additive"
 
-  depends_on = [module.project-services]
+  depends_on = [module.project-services, module.service-accounts]
 
   bindings = {
     "roles/resourcemanager.folderAdmin" = [

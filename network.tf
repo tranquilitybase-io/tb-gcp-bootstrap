@@ -5,6 +5,8 @@ module "vpc" {
   project_id              = var.project_id
   network_name            = local.network_name
   auto_create_subnetworks = false
+
+  depends_on = [module.project-services]
 }
 
 module "subnets" {
@@ -40,4 +42,6 @@ module "cloud-nat" {
   project_id = var.project_id
   region     = var.region
   router     = local.router_name
+
+  depends_on = [module.cloud_router]
 }
