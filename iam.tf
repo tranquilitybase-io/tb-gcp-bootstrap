@@ -14,6 +14,8 @@ module "folder-iam" {
 
   mode = "additive"
 
+  depends_on = [module.project-services]
+
   bindings = {
     "roles/resourcemanager.folderAdmin" = [
       local.sa_email,
