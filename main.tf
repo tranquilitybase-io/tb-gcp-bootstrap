@@ -7,5 +7,5 @@ locals {
   project_roles           = [for role in var.project_roles : format("%s=>%s", var.project_id, role)]
   subnet_name             = "bootstrapsubnet"
   sa_name                 = "bootstrapsa"
-  sa_email                = format("%s:%s@%s.%s", "serviceAccount", local.sa_name, var.project_id, "iam.gserviceaccount.com")
+  sa_email_role_format    = format("%s:%s@%s.%s", "serviceAccount", local.sa_name, var.project_id, "iam.gserviceaccount.com")
 }
