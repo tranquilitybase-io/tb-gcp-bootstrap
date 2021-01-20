@@ -40,12 +40,12 @@ module "subnets" {
   secondary_ranges = {
     local.subnet_name = [
       {
-        range_name    = "gke-pods-snet"
-        ip_cidr_range = "10.1.0.0/17"
+        range_name    = var.gke_pods_range_name
+        ip_cidr_range = var.gke_pods_range_ip
       },
       {
-        range_name    = "gke-services-snet"
-        ip_cidr_range = "10.1.128.0/20"
+        range_name    = var.gke_services_range_name
+        ip_cidr_range = var.gke_services_range_ip
       },
     ]
   }

@@ -66,3 +66,19 @@ variable "project_apis" {
 
 variable "random_id" {
 }
+
+variable "gke_pods_range_name" {
+  default = "gke-pods-snet"
+}
+
+variable "gke_pods_range_ip" {
+  default = "10.1.0.0/17"
+}
+
+variable "gke_services_range_name" {
+  default = "gke-services-snet"
+}
+
+variable "gke_services_range_ip" {
+  default = "10.1.128.0/20"
+}
