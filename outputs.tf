@@ -16,6 +16,14 @@ output "vpc_id" {
   value = lookup(module.vpc.network, "name", "noname")
 }
 
+output "vpc_all" {
+  value = module.vpc.network
+}
+
 output "subnet_id" {
   value = lookup(element(values(module.subnets.subnets),0), "name", "noname" )
+}
+
+output "subnet_all" {
+  value = module.subnets.subnets
 }
