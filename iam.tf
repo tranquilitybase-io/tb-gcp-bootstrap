@@ -29,10 +29,7 @@ module "folder-iam" {
   version = "~> 6.4"
 
   folders = [var.folder_id]
-
   mode = "additive"
-
-  depends_on = [module.project-services, module.service-accounts]
 
   bindings = {
     "roles/resourcemanager.folderAdmin" = [
@@ -66,6 +63,9 @@ module "folder-iam" {
       local.sa_email_role_format,
     ]
   }
+
+  depends_on = [module.project-services, module.service-accounts]
+
 }
 
 #module "billing-account-iam" {
