@@ -37,7 +37,7 @@ module "subnets" {
     }
   ]
 
-  secondary_ranges = local.secondary_ranges
+  secondary_ranges =  local.secondary_ranges
 }
 
 module "cloud_router" {

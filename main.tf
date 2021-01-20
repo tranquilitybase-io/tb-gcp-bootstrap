@@ -22,7 +22,7 @@ locals {
   subnet_name             = "bootstrapsubnet"
   sa_name                 = "bootstrapsa"
   sa_email_role_format    = format("%s:%s@%s.%s", "serviceAccount", local.sa_name, var.project_id, "iam.gserviceaccount.com")
-  secondary_ranges        = format("{%s = %s}",local.subnet_name, var.secondary_ranges)
+  secondary_ranges        = "${local.subnet_name} = ${var.secondary_ranges}"
 
 
 }
