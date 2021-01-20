@@ -13,9 +13,9 @@
 # limitations under the License.
 
 output "vpc_id" {
-  value = lookup(module.vpc.network, "id", "noid")
+  value = lookup(module.vpc.network, "name", "noname")
 }
 
 output "subnet_id" {
-  value = lookup(element(values(module.subnets.subnets),0), "id", "noid" )
+  value = lookup(element(values(module.subnets.subnets),0), "name", "noname" )
 }
