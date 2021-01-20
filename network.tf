@@ -38,7 +38,7 @@ module "subnets" {
   ]
 
   secondary_ranges = {
-    local.subnet_name = [
+    bootstrapsubnet = [
       {
         range_name    = var.gke_pods_range_name
         ip_cidr_range = var.gke_pods_range_ip
