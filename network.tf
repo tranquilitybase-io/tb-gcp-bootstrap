@@ -36,6 +36,19 @@ module "subnets" {
       subnet_private_access = true
     }
   ]
+
+  secondary_ranges = {
+    local.subnet_name = [
+      {
+        range_name    = "gke-pods-snet"
+        ip_cidr_range = "10.1.0.0/17"
+      },
+      {
+        range_name    = "gke-services-snet"
+        ip_cidr_range = "10.1.128.0/20"
+      },
+    ]
+  }
 }
 
 module "cloud_router" {
