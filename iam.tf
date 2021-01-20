@@ -12,6 +12,8 @@ module "service-accounts" {
 # due to the modules restrictions a for_each can't be used here
 module "folder-iam" {
   source  = "terraform-google-modules/iam/google//modules/folders_iam"
+  version = "~> 6.4"
+
   folders = [var.folder_id]
 
   mode = "additive"
