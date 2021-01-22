@@ -12,7 +12,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-output "vpc_id" {
+output "vpc_name" {
   value = lookup(module.vpc.network, "name", "noname")
 }
 
@@ -20,7 +20,7 @@ output "vpc_all" {
   value = module.vpc.network
 }
 
-output "subnet_id" {
+output "subnet_name" {
   value = lookup(element(values(module.subnets.subnets),0), "name", "noname" )
 }
 
