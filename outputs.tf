@@ -16,6 +16,10 @@ output "vpc_name" {
   value = lookup(module.vpc.network, "name", "noname")
 }
 
+output "vpc_id" {
+  value = lookup(module.vpc.network, "vpc_id", "noid")
+}
+
 output "vpc_all" {
   value = module.vpc.network
 }
