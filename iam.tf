@@ -123,5 +123,5 @@ module "net-firewall" {
     }
   }
 
-  depends_on = [module.project-services]
+  depends_on = [module.project-services, module.vpc]
 }
