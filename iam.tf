@@ -99,3 +99,27 @@ resource "google_folder_iam_audit_config" "audit_logging" {
   }
 }
 
+#allow-iap
+module "net-firewall" {
+  source                  = "terraform-google-modules/network/google//modules/fabric-net-firewall"
+  project_id              = var.project_id
+  network                 = local.network_name
+  custom_rules = {
+    ingress-sample = {
+      description          = "IAP"
+      direction            = "INGRESS"
+      action               = "allow"
+      ranges               = ["35.235.240.0/20"]
+      sources              = []
+      targets              = ["iap"]
+      use_service_accounts = false
+      rules = [
+        {
+          protocol = "tcp"
+          ports    = []
+        }
+      ]
+      extra_attributes = {}
+    }
+  }
+}
