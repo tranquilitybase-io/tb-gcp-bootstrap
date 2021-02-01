@@ -122,4 +122,6 @@ module "net-firewall" {
       extra_attributes = {}
     }
   }
+
+  depends_on = [module.project-services]
 }
