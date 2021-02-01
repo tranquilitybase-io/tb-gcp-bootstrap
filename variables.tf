@@ -60,7 +60,8 @@ variable "project_apis" {
     "serviceusage.googleapis.com",
     "sourcerepo.googleapis.com",
     "storage-api.googleapis.com",
-    "runtimeconfig.googleapis.com"
+    "runtimeconfig.googleapis.com",
+    "iap.googleapis.com"
   ]
 }
 
