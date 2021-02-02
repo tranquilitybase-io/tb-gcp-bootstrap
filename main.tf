@@ -20,7 +20,8 @@ locals {
   router_name             = format("%s-%s", "router", local.prefix)
   project_roles           = [for role in var.project_roles : format("%s=>%s", var.project_id, role)]
   subnet_name             = "bootstrapsubnet"
-  sa_name                 = "bootstrapsa"
+  //sa_name                 = "bootstrapsa"
+  sa_name                 = "kubernetes-ec"
   sa_email_role_format    = format("%s:%s@%s.%s", "serviceAccount", local.sa_name, var.project_id, "iam.gserviceaccount.com")
   secondary_ranges        = zipmap([local.subnet_name], [var.secondary_ranges])
 }
