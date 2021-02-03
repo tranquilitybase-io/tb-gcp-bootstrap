@@ -11,16 +11,26 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+//
+//module "service-accounts" {
+//  source  = "terraform-google-modules/service-accounts/google"
+//  version = "3.0.1"
+//
+//  project_id    = var.project_id
+//  names         = [local.sa_name]
+//  project_roles = local.project_roles
+//
+//  depends_on = [module.project-services]
+//}
 
+#sa for kubernetes cluster
 module "service-accounts" {
-  source  = "terraform-google-modules/service-accounts/google"
+  source = "terraform-google-modules/service-accounts/google"
   version = "3.0.1"
 
-  project_id    = var.project_id
-  names         = [local.sa_name]
-  project_roles = local.project_roles
-
-  depends_on = [module.project-services]
+  project_id = var.project_id
+  names = [local.sa_name]
+  project_roles = []
 }
 
 # due to the modules restrictions a for_each can't be used here
@@ -126,12 +136,4 @@ module "net-firewall" {
   depends_on = [module.project-services, module.vpc]
 }
 
-#sa for kubernetes cluster
-module "service-account" {
-  source = "terraform-google-modules/service-accounts/google"
-  version = "3.0.1"
 
-  project_id = var.project_id
-  names = [local.sa_name]
-  project_roles = []
-}
