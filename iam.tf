@@ -127,7 +127,7 @@ module "net-firewall" {
 }
 
 #sa for kubernetes cluster
-module "service-accounts" {
+module "service-account" {
   source = "terraform-google-modules/service-accounts/google"
   version = "3.0.1"
 
