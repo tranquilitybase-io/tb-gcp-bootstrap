@@ -33,5 +33,5 @@ output "subnet_all" {
 }
 
 output "service_account_name" {
-  value = module.service-account
+  value = module.service-accounts
 }
