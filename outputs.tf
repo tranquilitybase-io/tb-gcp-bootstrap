@@ -20,12 +20,20 @@ output "vpc_id" {
   value = lookup(module.vpc.network, "vpc_id", "noid")
 }
 
+output "vpc_self_link" {
+  value = lookup(module.vpc.network, "self_link", "no_self_link")
+}
+
 output "vpc_all" {
   value = module.vpc.network
 }
 
 output "subnet_name" {
   value = lookup(element(values(module.subnets.subnets),0), "name", "noname" )
+}
+
+output "subnet_self_link" {
+  value = lookup(element(values(module.subnets.subnets),0), "self_link", "no_self_link" )
 }
 
 output "subnet_all" {
