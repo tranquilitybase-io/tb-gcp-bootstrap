@@ -29,11 +29,11 @@ output "network_all" {
 }
 
 output "subnet_name" {
-  value = lookup(element(values(module.subnets.subnets),0), "name", "noname" )
+  value = lookup(element(values(module.subnets.subnets), 0), "name", "noname")
 }
 
 output "subnet_self_link" {
-  value = lookup(element(values(module.subnets.subnets),0), "self_link", "no_self_link" )
+  value = lookup(element(values(module.subnets.subnets), 0), "self_link", "no_self_link")
 }
 
 output "subnet_all" {

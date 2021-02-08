@@ -13,29 +13,29 @@
 # limitations under the License.
 
 variable "billing_id" {
-  type = string
+  type        = string
   description = "billing ID to attach project"
 }
 
 variable "region" {
   description = "default region"
-  type = string
-  default = "europe-west1"
+  type        = string
+  default     = "europe-west1"
 }
 
 variable "project_id" {
-  type = string
+  type        = string
   description = "project id to deploy into"
 }
 
 variable "folder_id" {
-  type = string
+  type        = string
   description = "folder id to deploy into"
 }
 
 variable "project_roles" {
   description = "roles to attach to project"
-  type = list(string)
+  type        = list(string)
   default = [
     "roles/compute.instanceAdmin.v1",
     "roles/storage.admin",
@@ -47,7 +47,7 @@ variable "project_roles" {
 
 variable "project_apis" {
   description = "project apis to enable"
-  type = list(string)
+  type        = list(string)
   default = [
     "cloudbilling.googleapis.com",
     "cloudkms.googleapis.com",

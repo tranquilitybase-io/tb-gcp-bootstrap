@@ -25,11 +25,11 @@
 
 #sa for kubernetes cluster
 module "service-accounts" {
-  source = "terraform-google-modules/service-accounts/google"
+  source  = "terraform-google-modules/service-accounts/google"
   version = "3.0.1"
 
-  project_id = var.project_id
-  names = [local.sa_name]
+  project_id    = var.project_id
+  names         = [local.sa_name]
   project_roles = []
 }
 
@@ -39,13 +39,13 @@ module "folder-iam" {
   version = "~> 6.4"
 
   folders = [var.folder_id]
-  mode = "additive"
+  mode    = "additive"
 
   bindings = {
     "roles/resourcemanager.folderAdmin" = [
       local.sa_email_role_format,
     ]
-   "roles/resourcemanager.projectCreator" = [
+    "roles/resourcemanager.projectCreator" = [
       local.sa_email_role_format,
     ]
     "roles/resourcemanager.projectDeleter" = [
@@ -111,9 +111,9 @@ resource "google_folder_iam_audit_config" "audit_logging" {
 
 #allow-iap
 module "net-firewall" {
-  source                  = "terraform-google-modules/network/google//modules/fabric-net-firewall"
-  project_id              = var.project_id
-  network                 = local.network_name
+  source     = "terraform-google-modules/network/google//modules/fabric-net-firewall"
+  project_id = var.project_id
+  network    = local.network_name
   custom_rules = {
     ingress-sample = {
       description          = "IAP"
