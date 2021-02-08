@@ -12,15 +12,15 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-output "vpc_name" {
+output "network_name" {
   value = lookup(module.vpc.network, "name", "noname")
 }
 
-output "vpc_id" {
+output "network_id" {
   value = lookup(module.vpc.network, "vpc_id", "noid")
 }
 
-output "vpc_self_link" {
+output "network_self_link" {
   value = lookup(module.vpc.network, "self_link", "no_self_link")
 }
 
