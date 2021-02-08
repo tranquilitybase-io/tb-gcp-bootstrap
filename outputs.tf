@@ -24,7 +24,7 @@ output "network_self_link" {
   value = lookup(module.vpc.network, "self_link", "no_self_link")
 }
 
-output "vpc_all" {
+output "network_all" {
   value = module.vpc.network
 }
 
